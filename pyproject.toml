@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ai-home-renovation-agent"
 version = "0.1.0"
-description = "AI home renovation agent"
+description = "AI home renovation agent: room photo -> renovation plan + cost estimate + photorealistic redesign with Nano Banana Pro (Gemini 3 Pro Image)"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -17,3 +17,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
+
+[project.scripts]
+renovate = "renovation_agent.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+renovation_agent = ["data/*.json"]

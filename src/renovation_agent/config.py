@@ -32,3 +32,10 @@ class Settings:
             image_size=size,
             output_dir=Path(os.environ.get("RENOVATION_OUTPUT_DIR", "outputs")),
         )
+
+def make_client(settings: Settings):
+    try:
+        from google import genai
+    except ImportError as e:
+        raise ConfigError("google-genai not installed. Run: pip install -r requirements.txt") from e
+    return genai.Client(api_key=settings.api_key)

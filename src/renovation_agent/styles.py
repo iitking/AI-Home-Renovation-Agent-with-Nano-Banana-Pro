@@ -5,3 +5,6 @@ STYLES: dict[str, str] = {
     "scandinavian": "light oak wood, white walls, soft textiles, airy and bright, functional furniture, cozy hygge touches",
     "industrial": "exposed brick or concrete finish, dark metal fixtures, reclaimed wood, Edison-style lighting",
 }
+
+def list_styles() -> list[str]:
+    return sorted(STYLES)

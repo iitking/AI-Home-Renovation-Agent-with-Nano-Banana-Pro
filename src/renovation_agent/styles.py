@@ -16,3 +16,25 @@ PRESERVE_RULES = (
     "Result must be a photorealistic interior photograph with natural lighting, correct shadows "
     "and realistic scale. Do not add text, watermarks or people."
 )
+
+def build_render_prompt(
+    style: str,
+    room_type: str = "room",
+    plan_highlights: list[str] | None = None,
+    brief: str = "",
+    variation_hint: str = "",
+) -> str:
+    if style not in STYLES:
+        raise ValueError(f"Unknown style {style!r}. Available: {', '.join(list_styles())}")
+    lines = [
+        f"Redesign this {room_type} as a {style} interior renovation.",
+        f"Style characteristics: {STYLES[style]}.",
+    ]
+    if plan_highlights:
+        lines.append("Apply these planned changes: " + "; ".join(plan_highlights) + ".")
+    if brief.strip():
+        lines.append(f"Owner's requirements: {brief.strip()}")
+    if variation_hint.strip():
+        lines.append(variation_hint.strip())
+    lines.append(PRESERVE_RULES)
+    return "\n".join(lines)

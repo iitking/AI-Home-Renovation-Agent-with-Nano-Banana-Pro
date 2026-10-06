@@ -27,3 +27,7 @@ def test_build_render_prompt_valid():
 def test_build_render_prompt_unknown_style():
     with pytest.raises(ValueError, match="Unknown style 'baroque'"):
         build_render_prompt("baroque")
+
+
+def test_styles_case_sensitivity():
+    assert 'modern' in list_styles()

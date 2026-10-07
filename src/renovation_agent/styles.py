@@ -3,11 +3,14 @@ from __future__ import annotations
 STYLES: dict[str, str] = {
     "modern": "clean lines, neutral palette, matte black and brushed metal accents, minimal clutter, hidden storage",
     "scandinavian": "light oak wood, white walls, soft textiles, airy and bright, functional furniture, cozy hygge touches",
+    "japandi": "warm natural wood, muted earth tones, low furniture, paper lamps, calm and uncluttered",
     "industrial": "exposed brick or concrete finish, dark metal fixtures, reclaimed wood, Edison-style lighting",
+    "minimalist": "very few items, monochrome palette, hidden handles, lots of negative space",
+    "indian-contemporary": "warm earthy palette, handcrafted wood and cane, brass accents, subtle ethnic textiles, layered lighting",
+    "bohemian": "layered rugs and textiles, plants, rattan, warm eclectic colours",
+    "mid-century": "teak wood, tapered legs, mustard/teal accents, geometric patterns, statement lamp",
+    "luxury": "marble surfaces, fluted panels, gold accents, velvet upholstery, concealed cove lighting",
 }
-
-def list_styles() -> list[str]:
-    return sorted(STYLES)
 
 PRESERVE_RULES = (
     "Keep the room's architecture EXACTLY the same: walls, windows, doors, ceiling height, "
@@ -16,6 +19,11 @@ PRESERVE_RULES = (
     "Result must be a photorealistic interior photograph with natural lighting, correct shadows "
     "and realistic scale. Do not add text, watermarks or people."
 )
+
+
+def list_styles() -> list[str]:
+    return sorted(STYLES)
+
 
 def build_render_prompt(
     style: str,

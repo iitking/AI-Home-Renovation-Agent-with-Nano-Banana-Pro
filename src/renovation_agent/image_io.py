@@ -26,4 +26,5 @@ def load_image(path: str | Path, max_side: int = MAX_SIDE) -> Image.Image:
         img.load()
     except (UnidentifiedImageError, OSError) as e:
         raise ImageError(f"Could not read image {p}: {e}") from e
+    # Convert transparent or palette images to standard RGB
     return img

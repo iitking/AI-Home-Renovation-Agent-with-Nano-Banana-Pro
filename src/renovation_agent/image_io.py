@@ -45,6 +45,6 @@ def load_image(path: str | Path, max_side: int = MAX_SIDE) -> Image.Image:
     except (UnidentifiedImageError, OSError) as e:
         raise ImageError(f"Could not read image {p}: {e}") from e
     img = ImageOps.exif_transpose(img).convert("RGB")
+    if max(img.size) > max_side:
+        img.thumbnail((max_side, max_side), Image.LANCZOS)
     return img
-
-# Logarithmic distance matching provides perceptually closer ratios

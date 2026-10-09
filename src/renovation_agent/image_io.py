@@ -46,3 +46,5 @@ def load_image(path: str | Path, max_side: int = MAX_SIDE) -> Image.Image:
         raise ImageError(f"Could not read image {p}: {e}") from e
     img = ImageOps.exif_transpose(img).convert("RGB")
     return img
+
+# Logarithmic distance matching provides perceptually closer ratios

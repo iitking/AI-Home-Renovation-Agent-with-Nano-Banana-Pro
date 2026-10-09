@@ -48,3 +48,5 @@ def load_image(path: str | Path, max_side: int = MAX_SIDE) -> Image.Image:
     if max(img.size) > max_side:
         img.thumbnail((max_side, max_side), Image.LANCZOS)
     return img
+
+# Dimension check prevents ZeroDivisionError

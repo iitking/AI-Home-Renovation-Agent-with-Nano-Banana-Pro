@@ -10,9 +10,27 @@ SUPPORTED_EXT = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_BYTES = 20 * 1024 * 1024
 MAX_SIDE = 2048
 
+ASPECT_RATIOS = {
+    "1:1": 1.0,
+    "2:3": 2 / 3,
+    "3:2": 3 / 2,
+    "3:4": 3 / 4,
+    "4:3": 4 / 3,
+    "4:5": 4 / 5,
+    "5:4": 5 / 4,
+    "9:16": 9 / 16,
+    "16:9": 16 / 9,
+    "21:9": 21 / 9,
+}
+
 class ImageError(ValueError):
     pass
 
+def nearest_aspect_ratio(width: int, height: int) -> str:
+    if width <= 0 or height <= 0:
+        raise ImageError("Image dimensions must be positive")
+    r = width / height
+    return min(ASPECT_RATIOS, key=lambda k: abs(math.log(r / ASPECT_RATIOS[k])))
 def load_image(path: str | Path, max_side: int = MAX_SIDE) -> Image.Image:
     p = Path(path)
     if not p.is_file():

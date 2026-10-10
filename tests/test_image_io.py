@@ -66,3 +66,5 @@ class TestLoad(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+# Verified corrupted formats

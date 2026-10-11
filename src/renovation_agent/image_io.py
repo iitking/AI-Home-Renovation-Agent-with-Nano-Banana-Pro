@@ -10,6 +10,7 @@ SUPPORTED_EXT = {".jpg", ".jpeg", ".png", ".webp"}
 MAX_BYTES = 20 * 1024 * 1024
 MAX_SIDE = 2048
 
+# Aspect ratios supported by the Gemini image API
 ASPECT_RATIOS = {
     "1:1": 1.0,
     "2:3": 2 / 3,
@@ -23,14 +24,18 @@ ASPECT_RATIOS = {
     "21:9": 21 / 9,
 }
 
+
 class ImageError(ValueError):
     pass
+
 
 def nearest_aspect_ratio(width: int, height: int) -> str:
     if width <= 0 or height <= 0:
         raise ImageError("Image dimensions must be positive")
     r = width / height
     return min(ASPECT_RATIOS, key=lambda k: abs(math.log(r / ASPECT_RATIOS[k])))
+
+
 def load_image(path: str | Path, max_side: int = MAX_SIDE) -> Image.Image:
     p = Path(path)
     if not p.is_file():
@@ -44,9 +49,20 @@ def load_image(path: str | Path, max_side: int = MAX_SIDE) -> Image.Image:
         img.load()
     except (UnidentifiedImageError, OSError) as e:
         raise ImageError(f"Could not read image {p}: {e}") from e
-    img = ImageOps.exif_transpose(img).convert("RGB")
+    img = ImageOps.exif_transpose(img).convert("RGB")  # fix phone rotation
     if max(img.size) > max_side:
         img.thumbnail((max_side, max_side), Image.LANCZOS)
     return img
 
-# Dimension check prevents ZeroDivisionError
+
+def save_image_bytes(data: bytes, path: str | Path) -> Path:
+    """Validate bytes are a real image and save (format chosen from file extension)."""
+    out = Path(path)
+    out.parent.mkdir(parents=True, exist_ok=True)
+    try:
+        img = Image.open(io.BytesIO(data))
+        img.load()
+    except (UnidentifiedImageError, OSError) as e:
+        raise ImageError(f"Model output was not a valid image: {e}") from e
+    img.save(out)
+    return out

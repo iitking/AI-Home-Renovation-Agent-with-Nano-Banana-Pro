@@ -21,3 +21,5 @@ class PlanItem:
     quantity: float
     unit: str
     notes: str = ""
+
+# Notes store specific contractor specifications

@@ -13,3 +13,5 @@ UNITS = ["sqft", "unit", "rft", "set", "lump"]
 
 class PlanError(ValueError):
     pass
+
+# Supported measurement units

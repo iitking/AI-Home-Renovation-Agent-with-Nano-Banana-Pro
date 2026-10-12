@@ -14,4 +14,10 @@ UNITS = ["sqft", "unit", "rft", "set", "lump"]
 class PlanError(ValueError):
     pass
 
-# PlanError raised when JSON schema validation fails
+@dataclass
+class PlanItem:
+    name: str
+    category: str
+    quantity: float
+    unit: str
+    notes: str = ""

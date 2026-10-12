@@ -14,4 +14,4 @@ UNITS = ["sqft", "unit", "rft", "set", "lump"]
 class PlanError(ValueError):
     pass
 
-# Supported measurement units
+# PlanError raised when JSON schema validation fails

@@ -22,4 +22,13 @@ class PlanItem:
     unit: str
     notes: str = ""
 
-# Notes store specific contractor specifications
+@dataclass
+class RenovationPlan:
+    room_type: str
+    observations: list[str] = field(default_factory=list)
+    issues: list[str] = field(default_factory=list)
+    items: list[PlanItem] = field(default_factory=list)
+    style_notes: str = ""
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)

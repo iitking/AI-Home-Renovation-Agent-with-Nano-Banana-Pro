@@ -32,3 +32,5 @@ class RenovationPlan:
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)
+
+# Dict representation for easy JSON dumping

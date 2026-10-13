@@ -73,3 +73,5 @@ class RenovationPlan:
             items=items,
             style_notes=str(d.get("style_notes", "")).strip(),
         )
+
+# Validates type assertions on incoming dictionaries

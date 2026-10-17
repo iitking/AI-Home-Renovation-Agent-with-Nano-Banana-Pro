@@ -21,3 +21,16 @@ class CostItem:
     unit_rate: float
     total: float
     notes: str = ""
+
+@dataclass
+class CostEstimate:
+    currency: str
+    items: list[CostItem] = field(default_factory=list)
+    subtotals_by_category: dict[str, float] = field(default_factory=dict)
+    contingency_percent: float = 10.0
+    contingency_amount: float = 0.0
+    grand_total: float = 0.0
+    notes: str = ""
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)

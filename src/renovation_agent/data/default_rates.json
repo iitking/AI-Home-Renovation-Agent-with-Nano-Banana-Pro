@@ -1,0 +1,18 @@
+{
+  "_comment": "Real market benchmark rates (labour + material, all-in) for residential renovation. Sourced from Indian Metro (CPWD/tier-1 city) contractor averages. Override with --rates <preset|file>.",
+  "name": "India Metro Benchmark",
+  "currency": "INR",
+  "rates": {
+    "paint":            {"unit": "sqft", "rate": 35,   "description": "Royale acrylic emulsion, 2 coats putty, 1 coat primer"},
+    "wall_treatment":   {"unit": "sqft", "rate": 180,  "description": "Fluted WPC louvers, acoustic panels or designer wallpaper"},
+    "flooring":         {"unit": "sqft", "rate": 140,  "description": "Large format vitrified tiles (800x800mm) including adhesive & grouting"},
+    "ceiling":          {"unit": "sqft", "rate": 125,  "description": "Gyproc false ceiling with GI framing and cove lighting trough"},
+    "lighting":         {"unit": "unit", "rate": 2000, "description": "Architectural COB downlight or magnetic track light with driver"},
+    "furniture":        {"unit": "unit", "rate": 18000,"description": "Custom modular storage, console or accent furniture in HDHMR/ply"},
+    "curtains_blinds":  {"unit": "set",  "rate": 6500, "description": "Floor-to-ceiling custom double sheer & blackout drape set with track"},
+    "decor":            {"unit": "unit", "rate": 2500, "description": "Designer wall art, large framed mirror, or ceramic indoor planter"},
+    "electrical":       {"unit": "unit", "rate": 1100, "description": "Modular switchboard point wiring, concealed conduit & protection"},
+    "plumbing":         {"unit": "unit", "rate": 3200, "description": "Concealed diverter or sanitaryware fitting installation"},
+    "carpentry":        {"unit": "rft",  "rate": 1600, "description": "BWR waterproof ply with 1mm high-pressure laminate and soft-close hardware"}
+  }
+}

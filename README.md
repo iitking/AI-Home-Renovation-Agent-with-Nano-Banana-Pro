@@ -9,3 +9,5 @@ AI-powered interior renovation planning and photorealistic redesign using Nano B
 
 ## Architecture
 1. **Planner Agent (Gemini Flash)**: Ingests room image, diagnoses architectural bottlenecks, and outputs an itemized Bill of Work in structured JSON.
+
+2. **Renderer Agent (Nano Banana Pro / Gemini 3 Pro Image)**: Renders high-fidelity architectural redesigns while strictly preserving room dimensions, structural walls, and camera perspective.

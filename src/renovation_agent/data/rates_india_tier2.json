@@ -1,0 +1,18 @@
+{
+  "_comment": "Real market benchmark rates (labour + material, all-in) for Tier 2/3 Indian cities (Ahmedabad, Jaipur, Lucknow, Chandigarh, Indore, Kochi). Sourced from regional contractor quotes.",
+  "name": "India Tier 2/3",
+  "currency": "INR",
+  "rates": {
+    "paint":            {"unit": "sqft", "rate": 30,   "description": "Premium acrylic emulsion with 2 coats putty and primer"},
+    "wall_treatment":   {"unit": "sqft", "rate": 145,  "description": "Accent wall texture or standard paneling with installation"},
+    "flooring":         {"unit": "sqft", "rate": 115,  "description": "Standard vitrified tile laying with screed and grouting"},
+    "ceiling":          {"unit": "sqft", "rate": 105,  "description": "POP/Gypsum false ceiling with standard channel framing"},
+    "lighting":         {"unit": "unit", "rate": 1600, "description": "Recessed LED downlight or decorative ceiling light"},
+    "furniture":        {"unit": "unit", "rate": 14000,"description": "Commercial ply storage unit or wardrobe carcass with laminate"},
+    "curtains_blinds":  {"unit": "set",  "rate": 4800, "description": "Standard room drapery set with rod/track"},
+    "decor":            {"unit": "unit", "rate": 1900, "description": "Framed print, indoor decorative vase or mirror"},
+    "electrical":       {"unit": "unit", "rate": 900,  "description": "Modular switch point wiring and conduit work"},
+    "plumbing":         {"unit": "unit", "rate": 2600, "description": "Standard CP fixture replacement and plumbing point fix"},
+    "carpentry":        {"unit": "rft",  "rate": 1350, "description": "Commercial ply carpentry with 0.8mm laminate"}
+  }
+}

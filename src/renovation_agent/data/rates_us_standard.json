@@ -1,0 +1,18 @@
+{
+  "_comment": "Real US national average benchmark rates (licensed contractor labour + material) from HomeAdvisor and RSMeans 2024 construction cost benchmarks.",
+  "name": "US Standard (USD)",
+  "currency": "USD",
+  "rates": {
+    "paint":            {"unit": "sqft", "rate": 3.50,  "description": "Interior latex paint, 2 coats, primer and drywall prep"},
+    "wall_treatment":   {"unit": "sqft", "rate": 14.00, "description": "Wood slat accent wall, shiplap or premium wallpaper"},
+    "flooring":         {"unit": "sqft", "rate": 11.00, "description": "Engineered hardwood or luxury vinyl plank (LVP) with subfloor prep"},
+    "ceiling":          {"unit": "sqft", "rate": 8.50,  "description": "Drywall ceiling finish, skim coat or architectural trim"},
+    "lighting":         {"unit": "unit", "rate": 220.0, "description": "Recessed LED wafer pot light or designer fixture with wiring"},
+    "furniture":        {"unit": "unit", "rate": 1200.0,"description": "Built-in cabinet, media console or premium accent furniture"},
+    "curtains_blinds":  {"unit": "set",  "rate": 350.0, "description": "Custom drapery or motorized roller shade set with hardware"},
+    "decor":            {"unit": "unit", "rate": 180.0, "description": "Oversized framed art, decorative floor plant or mirror"},
+    "electrical":       {"unit": "unit", "rate": 160.0, "description": "Licensed electrician outlet/switch point wiring"},
+    "plumbing":         {"unit": "unit", "rate": 320.0, "description": "Plumbing fixture replacement, faucet & shut-off valves"},
+    "carpentry":        {"unit": "rft",  "rate": 75.0,  "description": "Finish carpentry, crown moulding, baseboards or open shelving"}
+  }
+}

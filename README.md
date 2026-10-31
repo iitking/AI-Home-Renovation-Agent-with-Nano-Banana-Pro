@@ -144,5 +144,3 @@ pytest -v
 
 ## 📄 License
 MIT License. Free for personal, commercial, and research use.
-
-<!-- release v0.1.0-rc2 -->

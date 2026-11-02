@@ -72,12 +72,17 @@ cp .env.example .env
 ```
 
 ### 3. Run
+
 ```bash
+# Option A: Launch Interactive Browser Web UI
+python app.py
+# (or via CLI: renovate ui)
+
+# Option B: Run via CLI
 # Inspect market rate cards (India Metro, Tier 2, US Standard)
 renovate rates
-renovate rates --preset us-standard
 
-# Run full renovation pipeline on included sample photo
+# Run renovation pipeline on included sample photo
 renovate run --image examples/room.jpg --style japandi \
   --brief "budget 3 lakh, maximize storage and natural light" \
   --variants 2 --interactive

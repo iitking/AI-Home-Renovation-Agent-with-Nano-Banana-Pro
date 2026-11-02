@@ -18,6 +18,9 @@ def build_parser() -> argparse.ArgumentParser:
     sub.add_parser("styles", help="List available design styles")
     rates_p = sub.add_parser("rates", help="List available rate presets or show rate card")
     rates_p.add_argument("--preset", default="default", help="Preset name (default, india-metro, india-tier2, us-standard) or custom JSON path")
+    ui_p = sub.add_parser("ui", help="Launch interactive browser Web UI")
+    ui_p.add_argument("--port", type=int, default=8000, help="Port to listen on (default: 8000)")
+    ui_p.add_argument("--no-browser", action="store_true", help="Do not automatically open browser")
     r = sub.add_parser("run", help="Analyse a room photo and generate redesigns")
     r.add_argument("--image", required=True, help="Path to room photo (jpg/png/webp)")
     r.add_argument("--style", default="modern", choices=list_styles())
@@ -51,6 +54,10 @@ def main(argv: list[str] | None = None) -> int:
         for cat, r in data.get("rates", {}).items():
             desc = r.get("description", "")
             print(f"{cat:20s} {r.get('unit', ''):6s} {r.get('rate', 0):>12,g}  {desc}")
+        return 0
+    if args.cmd == "ui":
+        from .server import start_server
+        start_server(port=args.port, open_browser=not args.no_browser)
         return 0
     try:
         settings = Settings.from_env()

@@ -25,4 +25,4 @@ renovate = "renovation_agent.cli:main"
 where = ["src"]
 
 [tool.setuptools.package-data]
-renovation_agent = ["data/*.json"]
+renovation_agent = ["data/*.json", "static/*"]
